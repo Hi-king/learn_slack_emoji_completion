@@ -25,10 +25,14 @@ def main(
         'data').load(filter_by_vocabulary=True)
     candidates = list(candidates)
     keys_train, keys_test = sklearn.model_selection.train_test_split(
-        list(case_dict.keys()), test_size=1 - train_ratio)
-    optimizer = torch.optim.Adam(model.parameters(),
-                                 lr=lr,
-                                 weight_decay=weight_decay)
+        list(case_dict.keys()),
+        test_size=1 - train_ratio,
+    )
+    optimizer = torch.optim.Adam(
+        model.parameters(),
+        lr=lr,
+        weight_decay=weight_decay,
+    )
 
     def data_generator(keys, desc=None):
         for key in tqdm.tqdm(keys, desc=desc):
@@ -51,24 +55,27 @@ def main(
                 xs = [item[0] for item in batch]
                 maxlen = max(len(x) for x in xs)
 
-                xs = torch.stack([
-                    tokenizer.tokenize(x + "*" * (maxlen - len(x))) for x in xs
-                ],
-                                 dim=-1)
+                xs = torch.stack(
+                    [
+                        tokenizer.tokenize(x + "*" * (maxlen - len(x)))
+                        for x in xs
+                    ],
+                    dim=-1,
+                )
                 ys = torch.stack(
                     [torch.FloatTensor([item[1]]) for item in batch])
 
                 optimizer.zero_grad()
                 predict = model(xs)[0]
                 loss = torch.nn.BCEWithLogitsLoss()(predict, ys)
+                loss.backward()
+                optimizer.step()
+
                 ys_pred = torch.nn.Sigmoid()(predict) > 0.5
                 for y, y_pred in zip(ys, ys_pred):
                     confmat[int(y), int(y_pred)] += 1
-
-                loss.backward()
                 running_n += xs.size(0)
                 running_loss += loss.item() * xs.size(0)
-                optimizer.step()
                 batch = []
             if i % 1000 == 0 and running_n > 0:
                 print(running_loss / running_n)
@@ -86,10 +93,13 @@ def main(
                 xs = [item[0] for item in batch]
                 maxlen = max(len(x) for x in xs)
 
-                xs = torch.stack([
-                    tokenizer.tokenize(x + "*" * (maxlen - len(x))) for x in xs
-                ],
-                                 dim=-1)
+                xs = torch.stack(
+                    [
+                        tokenizer.tokenize(x + "*" * (maxlen - len(x)))
+                        for x in xs
+                    ],
+                    dim=-1,
+                )
                 ys = torch.stack(
                     [torch.FloatTensor([item[1]]) for item in batch])
 
