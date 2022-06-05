@@ -1,3 +1,5 @@
+import json
+import pathlib
 import string
 
 import torch
@@ -27,3 +29,20 @@ class Tokenizer:
     
     def tokenize(self, sentence: str) -> torch.Tensor:
         return torch.tensor([self.dictionary.word2idx[token] for token in sentence]).type(torch.int64)
+
+class SlackEmojiCompletionDataset:
+    def __init__(self, directory) -> None:
+        self.directory = pathlib.Path(directory)
+        self.candidate_characters = string.ascii_lowercase + string.digits + ' '
+    
+    def load(self):
+        candidates = {line.rstrip()[1:-1] for line in (self.directory / f'candidates.txt').open()}
+
+        case_dict = {}
+        for character in self.candidate_characters:
+            for line in (self.directory / f'{character}.txt').open():
+                datum = json.loads(line)
+                case_dict[datum['key']] = [
+                    candidate[1:-1] for candidate in datum['result']
+                ]
+        return candidates, case_dict
