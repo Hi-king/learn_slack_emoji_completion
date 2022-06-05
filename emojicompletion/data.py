@@ -23,7 +23,7 @@ class Dictionary(object):
         return len(self.idx2word)
 
 class Tokenizer:
-    vocabulary = string.ascii_lowercase + string.digits + ' '+'-'+'_'+'*' # * as a padding
+    vocabulary = string.ascii_lowercase + string.digits + ' '+'-'+'_'+'*'+'/' # * as a padding, / as a separator
     def __init__(self) -> None:
         self.dictionary = Dictionary(self.vocabulary)
     
