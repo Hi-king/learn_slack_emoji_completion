@@ -1,0 +1,703 @@
+{"key": "paa", "result": [":parachute:"]}
+{"key": "pab", "result": []}
+{"key": "pac", "result": [":package:", ":space_invader:", ":peach:", ":peacock:", ":placard:", ":pancakes:", ":peace_symbol:", ":dove_of_peace:", ":place_of_worship:", ":first_place_medal:", ":third_place_medal:", ":second_place_medal:"]}
+{"key": "pad", "result": [":spades:", ":spiral_note_pad:", ":spiral_calendar_pad:", ":table_tennis_paddle_and_ball:", ":leopard:", ":panda_face:"]}
+{"key": "pae", "result": [":pager:", ":spades:", ":paperclip:", ":newspaper:", ":japanese_ogre:", ":space_invader:", ":roll_of_paper:", ":page_with_curl:", ":page_facing_up:", ":japanese_castle:", ":japanese_goblin:", ":linked_paperclips:"]}
+{"key": "paf", "result": []}
+{"key": "pag", "result": [":pager:", ":page_with_curl:", ":page_facing_up:", ":spaghetti:", ":champagne:"]}
+{"key": "pah", "result": [":spaghetti:"]}
+{"key": "pai", "result": [":lower_left_paintbrush:"]}
+{"key": "paj", "result": []}
+{"key": "pak", "result": [":parking:", ":package:", ":speaker:", ":cupcake:", ":sparkle:", ":sparkler:", ":sparkles:", ":loudspeaker:", ":national_park:", ":speak_no_evil:", ":sparkling_heart:", ":speaking_head_in_silhouette:"]}
+{"key": "pal", "result": [":palm_tree:", ":palms_up_together:", ":face_palm:", ":man-facepalming:", ":woman-facepalming:", ":thumbsup_all:"]}
+{"key": "pam", "result": [":palm_tree:", ":face_palm:", ":man-facepalming:", ":woman-facepalming:", ":palms_up_together:"]}
+{"key": "pan", "result": [":pancakes:", ":panda_face:", ":japan:", ":japanese_ogre:", ":japanese_castle:", ":japanese_goblin:", ":shallow_pan_of_food:", ":peanuts:", ":eggplant:", ":elephant:", ":airplane:", ":champagne:", ":chess_pawn:", ":ringed_planet:", ":small_airplane:", ":european_castle:", ":airplane_arriving:", ":airplane_departure:", ":european_post_office:", ":lower_left_paintbrush:"]}
+{"key": "pao", "result": []}
+{"key": "pap", "result": [":paperclip:", ":newspaper:", ":roll_of_paper:", ":linked_paperclips:", ":rolled_up_newspaper:"]}
+{"key": "paq", "result": []}
+{"key": "par", "result": [":parrot:", ":parking:", ":parachute:", ":partly_sunny:", ":partying_face:", ":partly_sunny_rain:", ":part_alternation_mark:", ":leopard:", ":sparkle:", ":sparkler:", ":sparkles:", ":national_park:", ":sparkling_heart:", ":department_store:", ":airplane_departure:", ":man-with-bunny-ears-partying:", ":woman-with-bunny-ears-partying:", ":pear:", ":chart_with_upwards_trend:"]}
+{"key": "pas", "result": [":passenger_ship:", ":passport_control:", ":compass:"]}
+{"key": "pat", "result": [":tophat:", ":repeat:", ":stopwatch:", ":repeat_one:", ":partly_sunny:", ":partying_face:", ":knife_fork_plate:", ":department_store:", ":partly_sunny_rain:", ":part_alternation_mark:", ":man-with-bunny-ears-partying:", ":woman-with-bunny-ears-partying:"]}
+{"key": "pau", "result": []}
+{"key": "pav", "result": []}
+{"key": "paw", "result": [":paw_prints:", ":chess_pawn:"]}
+{"key": "pax", "result": []}
+{"key": "pay", "result": [":pray:", ":prayer_beads:", ":flower_playing_cards:", ":man-playing-handball:", ":man-playing-water-polo:", ":woman-playing-handball:", ":woman-playing-water-polo:", ":raised_hand_with_fingers_splayed:"]}
+{"key": "paz", "result": []}
+{"key": "pa0", "result": []}
+{"key": "pa1", "result": []}
+{"key": "pa2", "result": []}
+{"key": "pa3", "result": []}
+{"key": "pa4", "result": []}
+{"key": "pa5", "result": []}
+{"key": "pa6", "result": []}
+{"key": "pa7", "result": []}
+{"key": "pa8", "result": []}
+{"key": "pa9", "result": []}
+{"key": "pa", "result": [":pager:", ":parrot:", ":parking:", ":package:", ":pancakes:", ":paw_prints:", ":palm_tree:", ":paperclip:", ":parachute:", ":panda_face:", ":partly_sunny:", ":partying_face:", ":page_with_curl:", ":page_facing_up:", ":passenger_ship:", ":passport_control:", ":partly_sunny_rain:", ":palms_up_together:", ":part_alternation_mark:", ":japan:", ":spades:", ":flag-pa:", ":leopard:", ":sparkle:", ":sparkler:"]}
+{"key": "pbb", "result": []}
+{"key": "pbc", "result": []}
+{"key": "pbd", "result": []}
+{"key": "pbe", "result": [":bellhop_bell:"]}
+{"key": "pbf", "result": []}
+{"key": "pbg", "result": []}
+{"key": "pbh", "result": []}
+{"key": "pbi", "result": []}
+{"key": "pbj", "result": []}
+{"key": "pbk", "result": []}
+{"key": "pbl", "result": []}
+{"key": "pbm", "result": []}
+{"key": "pbn", "result": []}
+{"key": "pbo", "result": [":clipboard:"]}
+{"key": "pbp", "result": []}
+{"key": "pbq", "result": []}
+{"key": "pbr", "result": []}
+{"key": "pbs", "result": []}
+{"key": "pbt", "result": []}
+{"key": "pbu", "result": []}
+{"key": "pbv", "result": []}
+{"key": "pbw", "result": []}
+{"key": "pbx", "result": []}
+{"key": "pby", "result": []}
+{"key": "pbz", "result": []}
+{"key": "pb0", "result": []}
+{"key": "pb1", "result": []}
+{"key": "pb2", "result": []}
+{"key": "pb3", "result": []}
+{"key": "pb4", "result": []}
+{"key": "pb5", "result": []}
+{"key": "pb6", "result": []}
+{"key": "pb7", "result": []}
+{"key": "pb8", "result": []}
+{"key": "pb9", "result": []}
+{"key": "pb", "result": [":clipboard:"]}
+{"key": "pcc", "result": []}
+{"key": "pcd", "result": []}
+{"key": "pce", "result": [":space_invader:"]}
+{"key": "pcf", "result": []}
+{"key": "pcg", "result": []}
+{"key": "pch", "result": []}
+{"key": "pci", "result": []}
+{"key": "pcj", "result": []}
+{"key": "pck", "result": [":pick:", ":package:", ":cupcake:", ":spock-hand:", ":pickup_truck:", ":hammer_and_pick:", ":ice_hockey_stick_and_puck:"]}
+{"key": "pcl", "result": []}
+{"key": "pcm", "result": []}
+{"key": "pcn", "result": []}
+{"key": "pco", "result": [":popcorn:", ":desktop_computer:"]}
+{"key": "pcp", "result": []}
+{"key": "pcq", "result": []}
+{"key": "pcr", "result": []}
+{"key": "pcs", "result": []}
+{"key": "pct", "result": [":frame_with_picture:"]}
+{"key": "pcu", "result": []}
+{"key": "pcv", "result": []}
+{"key": "pcw", "result": []}
+{"key": "pcx", "result": []}
+{"key": "pcy", "result": []}
+{"key": "pcz", "result": []}
+{"key": "pc0", "result": []}
+{"key": "pc1", "result": []}
+{"key": "pc2", "result": []}
+{"key": "pc3", "result": []}
+{"key": "pc4", "result": []}
+{"key": "pc5", "result": []}
+{"key": "pc6", "result": []}
+{"key": "pc7", "result": []}
+{"key": "pc8", "result": []}
+{"key": "pc9", "result": []}
+{"key": "pc", "result": [":popcorn:", ":cupcake:"]}
+{"key": "pdd", "result": [":table_tennis_paddle_and_ball:"]}
+{"key": "pde", "result": [":spider:", ":spades:", ":spider_web:", ":no_pedestrians:"]}
+{"key": "pdf", "result": []}
+{"key": "pdg", "result": []}
+{"key": "pdh", "result": []}
+{"key": "pdi", "result": []}
+{"key": "pdj", "result": []}
+{"key": "pdk", "result": []}
+{"key": "pdl", "result": []}
+{"key": "pdm", "result": []}
+{"key": "pdn", "result": []}
+{"key": "pdo", "result": [":arrow_up_down:"]}
+{"key": "pdp", "result": []}
+{"key": "pdq", "result": []}
+{"key": "pdr", "result": []}
+{"key": "pds", "result": []}
+{"key": "pdt", "result": []}
+{"key": "pdu", "result": []}
+{"key": "pdv", "result": []}
+{"key": "pdw", "result": []}
+{"key": "pdx", "result": []}
+{"key": "pdy", "result": []}
+{"key": "pdz", "result": []}
+{"key": "pd0", "result": []}
+{"key": "pd1", "result": []}
+{"key": "pd2", "result": []}
+{"key": "pd3", "result": []}
+{"key": "pd4", "result": []}
+{"key": "pd5", "result": []}
+{"key": "pd6", "result": []}
+{"key": "pd7", "result": []}
+{"key": "pd8", "result": []}
+{"key": "pd9", "result": []}
+{"key": "pd", "result": []}
+{"key": "pee", "result": [":speedboat:", ":speech_balloon:", ":left_speech_bubble:", ":eye-in-speech-bubble:", ":no_pedestrians:"]}
+{"key": "pef", "result": [":performing_arts:"]}
+{"key": "peg", "result": [":penguin:", ":pregnant_woman:"]}
+{"key": "peh", "result": [":superhero:", ":male_superhero:", ":female_superhero:"]}
+{"key": "pei", "result": []}
+{"key": "pej", "result": []}
+{"key": "pek", "result": [":speaker:", ":couplekiss:", ":loudspeaker:", ":speak_no_evil:", ":speaking_head_in_silhouette:"]}
+{"key": "pel", "result": []}
+{"key": "pem", "result": []}
+{"key": "pen", "result": [":pencil:", ":penguin:", ":pensive:", ":pencil2:", ":open_hands:", ":open_mouth:", ":carpentry_saw:", ":open_file_folder:", ":lock_with_ink_pen:", ":open_book:", ":suspension_railway:", ":lower_left_fountain_pen:", ":lower_left_ballpoint_pen:", ":face_with_open_mouth_vomiting:", ":peanuts:", ":european_castle:", ":european_post_office:"]}
+{"key": "peo", "result": [":people_hugging:", ":people_holding_hands:"]}
+{"key": "pep", "result": [":hot_pepper:", ":bell_pepper:", ":people_hugging:", ":people_holding_hands:"]}
+{"key": "peq", "result": []}
+{"key": "per", "result": [":persevere:", ":performing_arts:", ":person_climbing:", ":person_in_tuxedo:", ":person_with_ball:", ":person_feeding_baby:", ":person_with_headscarf:", ":person_in_steamy_room:", ":person_with_blond_hair:", ":person_doing_cartwheel:", ":person_with_pouting_face:", ":person_with_probing_cane:", ":person_in_lotus_position:", ":person_in_manual_wheelchair:", ":person_in_motorized_wheelchair:", ":person_frowning:", ":flipper:", ":clapper:", ":paperclip:", ":newspaper:", ":superhero:", ":merperson:", ":hot_pepper:", ":deaf_person:", ":bald_person:"]}
+{"key": "pes", "result": [":grapes:", ":pensive:", ":persevere:", ":merperson:", ":compression:", ":deaf_person:", ":bald_person:", ":expressionless:", ":bearded_person:", ":standing_person:", ":kneeling_person:", ":person_climbing:", ":person_in_tuxedo:", ":person_with_ball:", ":red_haired_person:", ":suspension_railway:", ":curly_haired_person:", ":white_haired_person:", ":person_feeding_baby:", ":person_with_headscarf:", ":person_in_steamy_room:", ":person_with_blond_hair:", ":person_doing_cartwheel:", ":information_desk_person:", ":person_with_pouting_face:"]}
+{"key": "pet", "result": [":petri_dish:", ":trumpet:", ":repeat:", ":pretzel:", ":droplet:", ":repeat_one:", ":carpentry_saw:"]}
+{"key": "peu", "result": []}
+{"key": "pev", "result": [":supervillain:", ":male_supervillain:", ":female_supervillain:"]}
+{"key": "pew", "result": [":envelope_with_arrow:", ":diamond_shape_with_a_dot_inside:"]}
+{"key": "pex", "result": []}
+{"key": "pey", "result": []}
+{"key": "pez", "result": []}
+{"key": "pe0", "result": []}
+{"key": "pe1", "result": []}
+{"key": "pe2", "result": []}
+{"key": "pe3", "result": []}
+{"key": "pe4", "result": []}
+{"key": "pe5", "result": []}
+{"key": "pe6", "result": []}
+{"key": "pe7", "result": []}
+{"key": "pe8", "result": []}
+{"key": "pe9", "result": []}
+{"key": "pe", "result": [":pear:", ":peach:", ":pencil:", ":penguin:", ":pensive:", ":peanuts:", ":peacock:", ":pencil2:", ":persevere:", ":petri_dish:", ":peace_symbol:", ":people_hugging:", ":performing_arts:", ":person_climbing:", ":person_in_tuxedo:", ":person_with_ball:", ":person_feeding_baby:", ":person_frowning:", ":grapes:", ":repeat:", ":flag-pe:", ":trumpet:", ":flipper:", ":speaker:", ":envelope:"]}
+{"key": "pff", "result": []}
+{"key": "pfg", "result": []}
+{"key": "pfh", "result": []}
+{"key": "pfi", "result": []}
+{"key": "pfj", "result": []}
+{"key": "pfk", "result": []}
+{"key": "pfl", "result": []}
+{"key": "pfm", "result": []}
+{"key": "pfn", "result": []}
+{"key": "pfo", "result": []}
+{"key": "pfp", "result": []}
+{"key": "pfq", "result": []}
+{"key": "pfr", "result": []}
+{"key": "pfs", "result": []}
+{"key": "pft", "result": []}
+{"key": "pfu", "result": []}
+{"key": "pfv", "result": []}
+{"key": "pfw", "result": []}
+{"key": "pfx", "result": []}
+{"key": "pfy", "result": []}
+{"key": "pfz", "result": []}
+{"key": "pf0", "result": []}
+{"key": "pf1", "result": []}
+{"key": "pf2", "result": []}
+{"key": "pf3", "result": []}
+{"key": "pf4", "result": []}
+{"key": "pf5", "result": []}
+{"key": "pf6", "result": []}
+{"key": "pf7", "result": []}
+{"key": "pf8", "result": []}
+{"key": "pf9", "result": []}
+{"key": "pf", "result": [":flag-pf:"]}
+{"key": "pgg", "result": [":piggy:"]}
+{"key": "pgh", "result": [":spaghetti:"]}
+{"key": "pgi", "result": []}
+{"key": "pgj", "result": []}
+{"key": "pgk", "result": []}
+{"key": "pgl", "result": []}
+{"key": "pgm", "result": []}
+{"key": "pgn", "result": [":champagne:"]}
+{"key": "pgo", "result": []}
+{"key": "pgp", "result": []}
+{"key": "pgq", "result": []}
+{"key": "pgr", "result": []}
+{"key": "pgs", "result": []}
+{"key": "pgt", "result": []}
+{"key": "pgu", "result": []}
+{"key": "pgv", "result": []}
+{"key": "pgw", "result": []}
+{"key": "pgx", "result": []}
+{"key": "pgy", "result": []}
+{"key": "pgz", "result": []}
+{"key": "pg0", "result": []}
+{"key": "pg1", "result": []}
+{"key": "pg2", "result": [":pig2:"]}
+{"key": "pg3", "result": []}
+{"key": "pg4", "result": []}
+{"key": "pg5", "result": []}
+{"key": "pg6", "result": []}
+{"key": "pg7", "result": []}
+{"key": "pg8", "result": []}
+{"key": "pg9", "result": []}
+{"key": "pg", "result": [":flag-pg:"]}
+{"key": "phh", "result": []}
+{"key": "phi", "result": [":dolphin:", ":ophiuchus:"]}
+{"key": "phj", "result": []}
+{"key": "phk", "result": []}
+{"key": "phl", "result": []}
+{"key": "phm", "result": []}
+{"key": "phn", "result": [":phone:", ":iphone:", ":dolphin:", ":elephant:", ":saxophone:", ":microphone:", ":headphones:", ":mobile_phone_off:", ":no_mobile_phones:", ":studio_microphone:", ":telephone_receiver:"]}
+{"key": "pho", "result": [":phone:", ":iphone:", ":amphora:", ":saxophone:", ":microphone:", ":headphones:", ":mobile_phone_off:", ":no_mobile_phones:", ":studio_microphone:", ":telephone_receiver:"]}
+{"key": "php", "result": []}
+{"key": "phq", "result": []}
+{"key": "phr", "result": [":amphora:"]}
+{"key": "phs", "result": []}
+{"key": "pht", "result": [":tophat:"]}
+{"key": "phu", "result": [":ophiuchus:"]}
+{"key": "phv", "result": []}
+{"key": "phw", "result": []}
+{"key": "phx", "result": []}
+{"key": "phy", "result": [":trophy:"]}
+{"key": "phz", "result": []}
+{"key": "ph0", "result": []}
+{"key": "ph1", "result": []}
+{"key": "ph2", "result": []}
+{"key": "ph3", "result": []}
+{"key": "ph4", "result": []}
+{"key": "ph5", "result": []}
+{"key": "ph6", "result": []}
+{"key": "ph7", "result": []}
+{"key": "ph8", "result": []}
+{"key": "ph9", "result": []}
+{"key": "ph", "result": [":phone:", ":tophat:", ":trophy:", ":iphone:", ":flag-ph:", ":amphora:", ":dolphin:", ":triumph:", ":elephant:", ":saxophone:", ":ophiuchus:", ":microphone:", ":headphones:", ":mobile_phone_off:", ":no_mobile_phones:", ":studio_microphone:", ":telephone_receiver:", ":ideograph_advantage:"]}
+{"key": "pii", "result": []}
+{"key": "pij", "result": []}
+{"key": "pik", "result": [":pick:", ":pickup_truck:", ":hammer_and_pick:"]}
+{"key": "pil", "result": [":pill:", ":pilot:", ":male-pilot:", ":female-pilot:"]}
+{"key": "pim", "result": [":man_with_gua_pi_mao:"]}
+{"key": "pin", "result": [":pinata:", ":pineapple:", ":pinching_hand:", ":pinched_fingers:", ":sleeping_accommodation:", ":camping:", ":pushpin:", ":sleeping:", ":safety_pin:", ":round_pushpin:", ":shopping_bags:", ":man-tipping-hand:", ":shopping_trolley:", ":woman-tipping-hand:", ":prince:", ":printer:", ":dolphin:", ":princess:", ":dumpling:", ":scorpion:", ":point_up:", ":footprints:", ":hotsprings:", ":point_up_2:", ":point_down:"]}
+{"key": "pio", "result": [":scorpion:", ":pilot:", ":male-pilot:", ":female-pilot:"]}
+{"key": "pip", "result": []}
+{"key": "piq", "result": []}
+{"key": "pir", "result": [":pirate_flag:", ":vampire:", ":male_vampire:", ":female_vampire:", ":spiral_note_pad:", ":spiral_calendar_pad:"]}
+{"key": "pis", "result": [":pisces:", ":scorpius:", ":staff_of_aesculapius:"]}
+{"key": "pit", "result": [":shipit:", ":hospital:", ":capital_abcd:", ":frame_with_picture:"]}
+{"key": "piu", "result": [":scorpius:", ":staff_of_aesculapius:", ":ophiuchus:"]}
+{"key": "piv", "result": []}
+{"key": "piw", "result": []}
+{"key": "pix", "result": []}
+{"key": "piy", "result": []}
+{"key": "piz", "result": [":pizza:"]}
+{"key": "pi0", "result": []}
+{"key": "pi1", "result": []}
+{"key": "pi2", "result": [":pig2:"]}
+{"key": "pi3", "result": []}
+{"key": "pi4", "result": []}
+{"key": "pi5", "result": []}
+{"key": "pi6", "result": []}
+{"key": "pi7", "result": []}
+{"key": "pi8", "result": []}
+{"key": "pi9", "result": []}
+{"key": "pi", "result": [":pig:", ":pie:", ":pig2:", ":pill:", ":pick:", ":pizza:", ":pilot:", ":piggy:", ":pinata:", ":pisces:", ":pig_nose:", ":pineapple:", ":pirate_flag:", ":pickup_truck:", ":pinching_hand:", ":pinched_fingers:", ":sleeping_accommodation:", ":cupid:", ":spider:", ":shipit:", ":camping:", ":pushpin:", ":vampire:", ":hospital:", ":sleeping:"]}
+{"key": "pjj", "result": []}
+{"key": "pjk", "result": []}
+{"key": "pjl", "result": []}
+{"key": "pjm", "result": []}
+{"key": "pjn", "result": []}
+{"key": "pjo", "result": []}
+{"key": "pjp", "result": []}
+{"key": "pjq", "result": []}
+{"key": "pjr", "result": []}
+{"key": "pjs", "result": []}
+{"key": "pjt", "result": []}
+{"key": "pju", "result": []}
+{"key": "pjv", "result": []}
+{"key": "pjw", "result": []}
+{"key": "pjx", "result": []}
+{"key": "pjy", "result": []}
+{"key": "pjz", "result": []}
+{"key": "pj0", "result": []}
+{"key": "pj1", "result": []}
+{"key": "pj2", "result": []}
+{"key": "pj3", "result": []}
+{"key": "pj4", "result": []}
+{"key": "pj5", "result": []}
+{"key": "pj6", "result": []}
+{"key": "pj7", "result": []}
+{"key": "pj8", "result": []}
+{"key": "pj9", "result": []}
+{"key": "pj", "result": []}
+{"key": "pkk", "result": []}
+{"key": "pkl", "result": []}
+{"key": "pkm", "result": []}
+{"key": "pkn", "result": []}
+{"key": "pko", "result": []}
+{"key": "pkp", "result": []}
+{"key": "pkq", "result": []}
+{"key": "pkr", "result": []}
+{"key": "pks", "result": []}
+{"key": "pkt", "result": []}
+{"key": "pku", "result": []}
+{"key": "pkv", "result": []}
+{"key": "pkw", "result": []}
+{"key": "pkx", "result": []}
+{"key": "pky", "result": []}
+{"key": "pkz", "result": []}
+{"key": "pk0", "result": []}
+{"key": "pk1", "result": []}
+{"key": "pk2", "result": []}
+{"key": "pk3", "result": []}
+{"key": "pk4", "result": []}
+{"key": "pk5", "result": []}
+{"key": "pk6", "result": []}
+{"key": "pk7", "result": []}
+{"key": "pk8", "result": []}
+{"key": "pk9", "result": []}
+{"key": "pk", "result": [":flag-pk:"]}
+{"key": "pll", "result": [":pill:"]}
+{"key": "plm", "result": [":palm_tree:", ":face_palm:", ":man-facepalming:", ":woman-facepalming:", ":palms_up_together:"]}
+{"key": "pln", "result": [":plunger:", ":eggplant:", ":dumpling:", ":airplane:", ":ringed_planet:", ":small_airplane:", ":airplane_arriving:", ":airplane_departure:"]}
+{"key": "plo", "result": [":exploding_head:", ":pilot:", ":male-pilot:", ":female-pilot:", ":water_polo:"]}
+{"key": "plp", "result": []}
+{"key": "plq", "result": []}
+{"key": "plr", "result": []}
+{"key": "pls", "result": [":heartpulse:", ":heavy_plus_sign:"]}
+{"key": "plt", "result": [":droplet:", ":knife_fork_plate:"]}
+{"key": "plu", "result": [":plunger:", ":electric_plug:", ":heavy_plus_sign:"]}
+{"key": "plv", "result": []}
+{"key": "plw", "result": []}
+{"key": "plx", "result": []}
+{"key": "ply", "result": [":flower_playing_cards:", ":man-playing-handball:", ":man-playing-water-polo:", ":woman-playing-handball:", ":woman-playing-water-polo:", ":raised_hand_with_fingers_splayed:"]}
+{"key": "plz", "result": []}
+{"key": "pl0", "result": []}
+{"key": "pl1", "result": []}
+{"key": "pl2", "result": []}
+{"key": "pl3", "result": []}
+{"key": "pl4", "result": []}
+{"key": "pl5", "result": []}
+{"key": "pl6", "result": []}
+{"key": "pl7", "result": []}
+{"key": "pl8", "result": []}
+{"key": "pl9", "result": []}
+{"key": "pl", "result": [":plunger:", ":placard:", ":pleading_face:", ":place_of_worship:", ":apple:", ":flag-pl:", ":droplet:", ":couple:", ":eggplant:", ":dumpling:", ":airplane:", ":pineapple:", ":maple_leaf:", ":couplekiss:", ":green_apple:", ":purple_heart:", ":hindu_temple:", ":potted_plant:", ":simple_smile:", ":electric_plug:", ":ringed_planet:", ":small_airplane:", ":exploding_head:", ":people_hugging:", ":heavy_plus_sign:"]}
+{"key": "pmm", "result": []}
+{"key": "pmn", "result": [":chipmunk:"]}
+{"key": "pmo", "result": []}
+{"key": "pmp", "result": [":fuelpump:"]}
+{"key": "pmq", "result": []}
+{"key": "pmr", "result": []}
+{"key": "pms", "result": []}
+{"key": "pmt", "result": []}
+{"key": "pmu", "result": [":chipmunk:"]}
+{"key": "pmv", "result": []}
+{"key": "pmw", "result": []}
+{"key": "pmx", "result": []}
+{"key": "pmy", "result": []}
+{"key": "pmz", "result": []}
+{"key": "pm0", "result": []}
+{"key": "pm1", "result": []}
+{"key": "pm2", "result": []}
+{"key": "pm3", "result": []}
+{"key": "pm4", "result": []}
+{"key": "pm5", "result": []}
+{"key": "pm6", "result": []}
+{"key": "pm7", "result": []}
+{"key": "pm8", "result": []}
+{"key": "pm9", "result": []}
+{"key": "pm", "result": [":flag-pm:", ":chipmunk:"]}
+{"key": "pnn", "result": []}
+{"key": "pno", "result": []}
+{"key": "pnp", "result": []}
+{"key": "pnq", "result": []}
+{"key": "pnr", "result": []}
+{"key": "pns", "result": [":pensive:", ":suspension_railway:"]}
+{"key": "pnt", "result": [":carpentry_saw:"]}
+{"key": "pnu", "result": []}
+{"key": "pnv", "result": []}
+{"key": "pnw", "result": []}
+{"key": "pnx", "result": []}
+{"key": "pny", "result": []}
+{"key": "pnz", "result": []}
+{"key": "pn0", "result": []}
+{"key": "pn1", "result": []}
+{"key": "pn2", "result": []}
+{"key": "pn3", "result": []}
+{"key": "pn4", "result": []}
+{"key": "pn5", "result": []}
+{"key": "pn6", "result": []}
+{"key": "pn7", "result": []}
+{"key": "pn8", "result": []}
+{"key": "pn9", "result": []}
+{"key": "pn", "result": [":flag-pn:"]}
+{"key": "poo", "result": [":poop:", ":poodle:", ":spoon:", ":bowl_with_spoon:", ":water_polo:"]}
+{"key": "pop", "result": [":popcorn:", ":lollipop:", ":hippopotamus:", ":poop:", ":people_hugging:", ":people_holding_hands:"]}
+{"key": "poq", "result": []}
+{"key": "por", "result": [":sports_medal:", ":passport_control:", ":amphora:"]}
+{"key": "pos", "result": [":postbox:", ":post_office:", ":postal_horn:", ":european_post_office:", ":man_in_lotus_position:", ":triangular_flag_on_post:", ":woman_in_lotus_position:", ":person_in_lotus_position:"]}
+{"key": "pot", "result": [":potato:", ":potted_plant:", ":potable_water:", ":teapot:", ":honey_pot:", ":hippopotamus:", ":non-potable_water:", ":sweet_potato:", ":postbox:", ":post_office:", ":postal_horn:", ":man-pouting:", ":sports_medal:", ":woman-pouting:", ":pouting_cat:", ":triangular_flag_on_post:"]}
+{"key": "pou", "result": [":pouch:", ":pound:", ":poultry_leg:", ":pouting_cat:", ":man-pouting:", ":woman-pouting:", ":person_with_pouting_face:"]}
+{"key": "pov", "result": []}
+{"key": "pow", "result": []}
+{"key": "pox", "result": []}
+{"key": "poy", "result": []}
+{"key": "poz", "result": []}
+{"key": "po0", "result": []}
+{"key": "po1", "result": []}
+{"key": "po2", "result": []}
+{"key": "po3", "result": []}
+{"key": "po4", "result": []}
+{"key": "po5", "result": []}
+{"key": "po6", "result": []}
+{"key": "po7", "result": []}
+{"key": "po8", "result": []}
+{"key": "po9", "result": []}
+{"key": "po", "result": [":poop:", ":pouch:", ":pound:", ":potato:", ":poodle:", ":popcorn:", ":postbox:", ":point_up:", ":polar_bear:", ":point_up_2:", ":point_down:", ":point_left:", ":police_car:", ":poultry_leg:", ":post_office:", ":point_right:", ":postal_horn:", ":potted_plant:", ":potable_water:", ":pouting_cat:", ":spoon:", ":sponge:", ":teapot:", ":lollipop:", ":sauropod:"]}
+{"key": "ppp", "result": [":hot_pepper:", ":hippopotamus:", ":bell_pepper:"]}
+{"key": "ppq", "result": []}
+{"key": "ppr", "result": [":flipper:", ":clapper:", ":arrow_upper_left:", ":zipper_mouth_face:", ":arrow_upper_right:"]}
+{"key": "pps", "result": []}
+{"key": "ppt", "result": []}
+{"key": "ppu", "result": []}
+{"key": "ppv", "result": []}
+{"key": "ppw", "result": []}
+{"key": "ppx", "result": []}
+{"key": "ppy", "result": [":floppy_disk:"]}
+{"key": "ppz", "result": []}
+{"key": "pp0", "result": []}
+{"key": "pp1", "result": []}
+{"key": "pp2", "result": []}
+{"key": "pp3", "result": []}
+{"key": "pp4", "result": []}
+{"key": "pp5", "result": []}
+{"key": "pp6", "result": []}
+{"key": "pp7", "result": []}
+{"key": "pp8", "result": []}
+{"key": "pp9", "result": []}
+{"key": "pp", "result": [":apple:", ":flipper:", ":clapper:", ":pineapple:", ":hot_pepper:", ":hippopotamus:", ":green_apple:", ":floppy_disk:", ":bell_pepper:", ":disappointed:", ":shopping_bags:", ":man-tipping-hand:", ":shopping_trolley:", ":arrow_upper_left:", ":zipper_mouth_face:", ":arrow_upper_right:", ":woman-tipping-hand:", ":snow_capped_mountain:", ":disappointed_relieved:"]}
+{"key": "pqq", "result": []}
+{"key": "pqr", "result": []}
+{"key": "pqs", "result": []}
+{"key": "pqt", "result": []}
+{"key": "pqu", "result": []}
+{"key": "pqv", "result": []}
+{"key": "pqw", "result": []}
+{"key": "pqx", "result": []}
+{"key": "pqy", "result": []}
+{"key": "pqz", "result": []}
+{"key": "pq0", "result": []}
+{"key": "pq1", "result": []}
+{"key": "pq2", "result": []}
+{"key": "pq3", "result": []}
+{"key": "pq4", "result": []}
+{"key": "pq5", "result": []}
+{"key": "pq6", "result": []}
+{"key": "pq7", "result": []}
+{"key": "pq8", "result": []}
+{"key": "pq9", "result": []}
+{"key": "pq", "result": []}
+{"key": "prr", "result": [":parrot:"]}
+{"key": "prs", "result": [":purse:", ":persevere:", ":merperson:", ":compression:", ":deaf_person:", ":bald_person:", ":expressionless:", ":bearded_person:", ":standing_person:", ":kneeling_person:", ":person_climbing:", ":person_in_tuxedo:", ":person_with_ball:", ":red_haired_person:", ":curly_haired_person:", ":white_haired_person:", ":person_feeding_baby:", ":person_with_headscarf:", ":person_in_steamy_room:", ":person_with_blond_hair:", ":person_doing_cartwheel:", ":information_desk_person:", ":person_with_pouting_face:", ":person_with_probing_cane:", ":person_in_lotus_position:"]}
+{"key": "prt", "result": [":pretzel:", ":sports_medal:", ":partly_sunny:", ":partying_face:", ":department_store:", ":partly_sunny_rain:", ":part_alternation_mark:", ":man-with-bunny-ears-partying:", ":woman-with-bunny-ears-partying:"]}
+{"key": "pru", "result": []}
+{"key": "prv", "result": [":supervillain:", ":male_supervillain:", ":female_supervillain:"]}
+{"key": "prw", "result": []}
+{"key": "prx", "result": []}
+{"key": "pry", "result": [":pray:", ":prayer_beads:"]}
+{"key": "prz", "result": []}
+{"key": "pr0", "result": []}
+{"key": "pr1", "result": []}
+{"key": "pr2", "result": []}
+{"key": "pr3", "result": []}
+{"key": "pr4", "result": []}
+{"key": "pr5", "result": []}
+{"key": "pr6", "result": []}
+{"key": "pr7", "result": []}
+{"key": "pr8", "result": []}
+{"key": "pr9", "result": []}
+{"key": "pr", "result": [":pray:", ":prince:", ":printer:", ":pretzel:", ":princess:", ":probing_cane:", ":prayer_beads:", ":pregnant_woman:", ":flag-pr:", ":capricorn:", ":paw_prints:", ":footprints:", ":hotsprings:", ":compression:", ":expressionless:", ":film_projector:", ":man_with_probing_cane:", ":woman_with_probing_cane:", ":person_with_probing_cane:"]}
+{"key": "pss", "result": [":compass:", ":passenger_ship:", ":passport_control:"]}
+{"key": "pst", "result": [":lipstick:", ":chopsticks:", ":postbox:", ":keycap_star:", ":post_office:", ":postal_horn:", ":triangular_flag_on_post:"]}
+{"key": "psu", "result": []}
+{"key": "psv", "result": []}
+{"key": "psw", "result": []}
+{"key": "psx", "result": []}
+{"key": "psy", "result": []}
+{"key": "psz", "result": []}
+{"key": "ps0", "result": []}
+{"key": "ps1", "result": []}
+{"key": "ps2", "result": []}
+{"key": "ps3", "result": []}
+{"key": "ps4", "result": []}
+{"key": "ps5", "result": []}
+{"key": "ps6", "result": []}
+{"key": "ps7", "result": []}
+{"key": "ps8", "result": []}
+{"key": "ps9", "result": []}
+{"key": "ps", "result": [":sweat_drops:", ":lips:", ":flag-ps:", ":lipstick:", ":chopsticks:", ":upside_down_face:", ":linked_paperclips:", ":umbrella_with_rain_drops:", ":face_with_finger_covering_closed_lips:"]}
+{"key": "ptt", "result": [":potted_plant:"]}
+{"key": "ptu", "result": []}
+{"key": "ptv", "result": []}
+{"key": "ptw", "result": []}
+{"key": "ptx", "result": []}
+{"key": "pty", "result": []}
+{"key": "ptz", "result": []}
+{"key": "pt0", "result": []}
+{"key": "pt1", "result": []}
+{"key": "pt2", "result": []}
+{"key": "pt3", "result": []}
+{"key": "pt4", "result": []}
+{"key": "pt5", "result": []}
+{"key": "pt6", "result": []}
+{"key": "pt7", "result": []}
+{"key": "pt8", "result": []}
+{"key": "pt9", "result": []}
+{"key": "pt", "result": [":accept:", ":flag-pt:", ":receipt:", ":helicopter:"]}
+{"key": "puu", "result": []}
+{"key": "puv", "result": []}
+{"key": "puw", "result": []}
+{"key": "pux", "result": []}
+{"key": "puy", "result": []}
+{"key": "puz", "result": []}
+{"key": "pu0", "result": []}
+{"key": "pu1", "result": []}
+{"key": "pu2", "result": []}
+{"key": "pu3", "result": []}
+{"key": "pu4", "result": []}
+{"key": "pu5", "result": []}
+{"key": "pu6", "result": []}
+{"key": "pu7", "result": []}
+{"key": "pu8", "result": []}
+{"key": "pu9", "result": []}
+{"key": "pu", "result": [":punch:", ":purse:", ":pushpin:", ":computer:", ":purple_heart:", ":put_litter_in_its_place:", ":octopus:", ":fuelpump:", ":heartpulse:", ":round_pushpin:", ":desktop_computer:", ":large_purple_circle:", ":large_purple_square:", ":ice_hockey_stick_and_puck:"]}
+{"key": "pvv", "result": []}
+{"key": "pvw", "result": []}
+{"key": "pvx", "result": []}
+{"key": "pvy", "result": []}
+{"key": "pvz", "result": []}
+{"key": "pv0", "result": []}
+{"key": "pv1", "result": []}
+{"key": "pv2", "result": []}
+{"key": "pv3", "result": []}
+{"key": "pv4", "result": []}
+{"key": "pv5", "result": []}
+{"key": "pv6", "result": []}
+{"key": "pv7", "result": []}
+{"key": "pv8", "result": []}
+{"key": "pv9", "result": []}
+{"key": "pv", "result": []}
+{"key": "pww", "result": []}
+{"key": "pwx", "result": []}
+{"key": "pwy", "result": []}
+{"key": "pwz", "result": []}
+{"key": "pw0", "result": []}
+{"key": "pw1", "result": []}
+{"key": "pw2", "result": []}
+{"key": "pw3", "result": []}
+{"key": "pw4", "result": []}
+{"key": "pw5", "result": []}
+{"key": "pw6", "result": []}
+{"key": "pw7", "result": []}
+{"key": "pw8", "result": []}
+{"key": "pw9", "result": []}
+{"key": "pw", "result": [":flag-pw:", ":stopwatch:", ":chart_with_upwards_trend:"]}
+{"key": "pxx", "result": []}
+{"key": "pxy", "result": []}
+{"key": "pxz", "result": []}
+{"key": "px0", "result": []}
+{"key": "px1", "result": []}
+{"key": "px2", "result": []}
+{"key": "px3", "result": []}
+{"key": "px4", "result": []}
+{"key": "px5", "result": []}
+{"key": "px6", "result": []}
+{"key": "px7", "result": []}
+{"key": "px8", "result": []}
+{"key": "px9", "result": []}
+{"key": "px", "result": []}
+{"key": "pyy", "result": []}
+{"key": "pyz", "result": []}
+{"key": "py0", "result": []}
+{"key": "py1", "result": []}
+{"key": "py2", "result": []}
+{"key": "py3", "result": []}
+{"key": "py4", "result": []}
+{"key": "py5", "result": []}
+{"key": "py6", "result": []}
+{"key": "py7", "result": []}
+{"key": "py8", "result": []}
+{"key": "py9", "result": []}
+{"key": "py", "result": [":sleepy:", ":flag-py:", ":copyright:", ":floppy_disk:", ":sleuth_or_spy:"]}
+{"key": "pzz", "result": [":pizza:"]}
+{"key": "pz0", "result": []}
+{"key": "pz1", "result": []}
+{"key": "pz2", "result": []}
+{"key": "pz3", "result": []}
+{"key": "pz4", "result": []}
+{"key": "pz5", "result": []}
+{"key": "pz6", "result": []}
+{"key": "pz7", "result": []}
+{"key": "pz8", "result": []}
+{"key": "pz9", "result": []}
+{"key": "pz", "result": []}
+{"key": "p00", "result": []}
+{"key": "p01", "result": []}
+{"key": "p02", "result": []}
+{"key": "p03", "result": []}
+{"key": "p04", "result": []}
+{"key": "p05", "result": []}
+{"key": "p06", "result": []}
+{"key": "p07", "result": []}
+{"key": "p08", "result": []}
+{"key": "p09", "result": []}
+{"key": "p0", "result": []}
+{"key": "p11", "result": []}
+{"key": "p12", "result": []}
+{"key": "p13", "result": []}
+{"key": "p14", "result": []}
+{"key": "p15", "result": []}
+{"key": "p16", "result": []}
+{"key": "p17", "result": []}
+{"key": "p18", "result": []}
+{"key": "p19", "result": []}
+{"key": "p1", "result": []}
+{"key": "p22", "result": []}
+{"key": "p23", "result": []}
+{"key": "p24", "result": []}
+{"key": "p25", "result": []}
+{"key": "p26", "result": []}
+{"key": "p27", "result": []}
+{"key": "p28", "result": []}
+{"key": "p29", "result": []}
+{"key": "p2", "result": []}
+{"key": "p33", "result": []}
+{"key": "p34", "result": []}
+{"key": "p35", "result": []}
+{"key": "p36", "result": []}
+{"key": "p37", "result": []}
+{"key": "p38", "result": []}
+{"key": "p39", "result": []}
+{"key": "p3", "result": []}
+{"key": "p44", "result": []}
+{"key": "p45", "result": []}
+{"key": "p46", "result": []}
+{"key": "p47", "result": []}
+{"key": "p48", "result": []}
+{"key": "p49", "result": []}
+{"key": "p4", "result": []}
+{"key": "p55", "result": []}
+{"key": "p56", "result": []}
+{"key": "p57", "result": []}
+{"key": "p58", "result": []}
+{"key": "p59", "result": []}
+{"key": "p5", "result": []}
+{"key": "p66", "result": []}
+{"key": "p67", "result": []}
+{"key": "p68", "result": []}
+{"key": "p69", "result": []}
+{"key": "p6", "result": []}
+{"key": "p77", "result": []}
+{"key": "p78", "result": []}
+{"key": "p79", "result": []}
+{"key": "p7", "result": []}
+{"key": "p88", "result": []}
+{"key": "p89", "result": []}
+{"key": "p8", "result": []}
+{"key": "p99", "result": []}
+{"key": "p9", "result": []}
+{"key": "p", "result": [":sweat_drops:", ":poop:", ":computer:", ":thumbsup:", ":pray:", ":clap:", ":pig:", ":pie:", ":pear:", ":pig2:", ":pill:", ":pick:", ":peach:", ":pizza:", ":punch:", ":purse:", ":pouch:", ":pound:", ":pager:", ":pilot:", ":phone:", ":piggy:", ":prince:", ":pencil:", ":potato:"]}
