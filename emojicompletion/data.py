@@ -7,6 +7,7 @@ import torch
 
 class Dictionary(object):
     """https://github.com/pytorch/examples/blob/2bf23f105237e03ee2501f29670fb6a9ca915096/word_language_model/data.py#L5"""
+
     def __init__(self, vocabulary=[]):
         self.word2idx = {}
         self.idx2word = []
@@ -22,28 +23,39 @@ class Dictionary(object):
     def __len__(self):
         return len(self.idx2word)
 
+
 class Tokenizer:
-    vocabulary = string.ascii_lowercase + string.digits + ' '+'-'+'_'+'*'+'/' # * as a padding, / as a separator
+    vocabulary = string.ascii_lowercase + string.digits + ' ' + '-' + '_' + '*' + '/'  # * as a padding, / as a separator
+
     def __init__(self) -> None:
         self.dictionary = Dictionary(self.vocabulary)
-    
+
     def tokenize(self, sentence: str) -> torch.Tensor:
-        return torch.tensor([self.dictionary.word2idx[token] for token in sentence]).type(torch.int64)
+        return torch.tensor([
+            self.dictionary.word2idx[token] for token in sentence
+        ]).type(torch.int64)
+
 
 class SlackEmojiCompletionDataset:
+
     def __init__(self, directory) -> None:
         self.directory = pathlib.Path(directory)
         self.candidate_characters = string.ascii_lowercase + string.digits + ' '
-    
+
     def _is_in_vocabulary(self, sentence):
-        return all( (x in Tokenizer.vocabulary) for x in sentence)
-
-
+        return all((x in Tokenizer.vocabulary) for x in sentence)
 
     def load(self, filter_by_vocabulary: bool):
-        candidates = {line.rstrip()[1:-1] for line in (self.directory / f'candidates.txt').open()}
+        candidates = {
+            line.rstrip()[1:-1]
+            for line in (self.directory / f'candidates.txt').open()
+        }
         if filter_by_vocabulary:
-            candidates = {candidate for candidate in candidates if self._is_in_vocabulary(candidate)}
+            candidates = {
+                candidate
+                for candidate in candidates
+                if self._is_in_vocabulary(candidate)
+            }
 
         case_dict = {}
         for character in self.candidate_characters:
@@ -54,6 +66,7 @@ class SlackEmojiCompletionDataset:
                 ]
                 if filter_by_vocabulary:
                     case_dict[datum['key']] = [
-                        candidate for candidate in case_dict[datum['key']] if self._is_in_vocabulary(candidate)
+                        candidate for candidate in case_dict[datum['key']]
+                        if self._is_in_vocabulary(candidate)
                     ]
         return candidates, case_dict
