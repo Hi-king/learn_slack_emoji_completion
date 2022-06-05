@@ -6,6 +6,7 @@ authors = ["Hi-king <hikingko1@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+torch = "^1.11.0"
 
 [tool.poetry.dev-dependencies]
 
