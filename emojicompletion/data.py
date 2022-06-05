@@ -23,9 +23,9 @@ class Dictionary(object):
         return len(self.idx2word)
 
 class Tokenizer:
+    vocabulary = string.ascii_lowercase + string.digits + ' '+'-'+'_'+'*' # * as a padding
     def __init__(self) -> None:
-        vocabulary = string.ascii_lowercase + string.digits + ' '
-        self.dictionary = Dictionary(vocabulary)
+        self.dictionary = Dictionary(self.vocabulary)
     
     def tokenize(self, sentence: str) -> torch.Tensor:
         return torch.tensor([self.dictionary.word2idx[token] for token in sentence]).type(torch.int64)
@@ -35,8 +35,15 @@ class SlackEmojiCompletionDataset:
         self.directory = pathlib.Path(directory)
         self.candidate_characters = string.ascii_lowercase + string.digits + ' '
     
-    def load(self):
+    def _is_in_vocabulary(self, sentence):
+        return all( (x in Tokenizer.vocabulary) for x in sentence)
+
+
+
+    def load(self, filter_by_vocabulary: bool):
         candidates = {line.rstrip()[1:-1] for line in (self.directory / f'candidates.txt').open()}
+        if filter_by_vocabulary:
+            candidates = {candidate for candidate in candidates if self._is_in_vocabulary(candidate)}
 
         case_dict = {}
         for character in self.candidate_characters:
@@ -45,4 +52,8 @@ class SlackEmojiCompletionDataset:
                 case_dict[datum['key']] = [
                     candidate[1:-1] for candidate in datum['result']
                 ]
+                if filter_by_vocabulary:
+                    case_dict[datum['key']] = [
+                        candidate for candidate in case_dict[datum['key']] if self._is_in_vocabulary(candidate)
+                    ]
         return candidates, case_dict
