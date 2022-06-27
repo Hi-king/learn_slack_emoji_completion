@@ -51,11 +51,14 @@ def main(
 
     def data_generator(keys, desc=None):
         for key in tqdm.tqdm(keys, desc=desc):
+            # positive sample
             if case_dict[key]:
                 target = random.choice(case_dict[key])
                 yield key + '/' + target, True
+
+            # negative sample
             target = random.choice(candidates)
-            yield key + target, False
+            yield key + '/' + target, False
 
     for epoch in range(num_epoch):
         for phase in ["train", "val"]:
@@ -69,7 +72,7 @@ def main(
             confmat = np.zeros((2, 2), dtype=int)
             model.train()
             for i, (x, y) in enumerate(
-                    data_generator(keys_train, desc=f'[train, epoch{epoch}]')):
+                    data_generator(keys_train, desc=f'[{phase}, epoch{epoch}]')):
                 batch.append((x, y))
                 if len(batch) >= batch_size:
                     xs = [item[0] for item in batch]
@@ -99,7 +102,7 @@ def main(
                     running_n += xs.size(0)
                     running_loss += loss.item() * xs.size(0)
                     batch = []
-                if phase == "train" and i % 1000 == 0 and running_n > 0:
+                if phase == "train" and i % 3000 == 0 and running_n > 0:
                     print(running_loss / running_n)
                     print(confmat)
             print(running_loss / running_n)
