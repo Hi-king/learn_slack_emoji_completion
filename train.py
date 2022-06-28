@@ -1,5 +1,7 @@
 import copy
 import datetime
+import inspect
+import json
 import pathlib
 import random
 import subprocess
@@ -20,9 +22,26 @@ def main(
     weight_decay=1e-5,
     num_epoch=20,
 ):
+    use_gpu = torch.cuda.is_available()
+    git_commit_id = (
+        subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
+        .decode("ascii")
+        .strip()
+    )
+    results_dir = (
+        pathlib.Path(__file__).parent
+        / "results"
+        / f'batch{batch_size}_lr{lr}_commit{git_commit_id}_{datetime.datetime.now().strftime("%Y%m%d%H%M")}'
+    )
+    results_dir.mkdir(exist_ok=True, parents=True)
+
     tokenizer = emojicompletion.data.Tokenizer()
     model = emojicompletion.model.Transformer(
         n_token=len(tokenizer.dictionary))
+    criterion = torch.nn.BCEWithLogitsLoss()
+    if use_gpu:
+        model = model.cuda()
+        criterion = criterion.cuda()
     candidates, case_dict = emojicompletion.data.SlackEmojiCompletionDataset(
         directory=pathlib.Path(__file__).parent /
         'data').load(filter_by_vocabulary=True)
@@ -37,17 +56,15 @@ def main(
         weight_decay=weight_decay,
     )
 
-    git_commit_id = (
-        subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
-        .decode("ascii")
-        .strip()
-    )
-    results_dir = (
-        pathlib.Path(__file__).parent
-        / "results"
-        / f'batch{batch_size}_lr{lr}_commit{git_commit_id}_{datetime.datetime.now().strftime("%Y%m%d%H%M")}'
-    )
-    results_dir.mkdir(exist_ok=True, parents=True)
+    # save params
+    all_params = locals()
+    params = {
+        key: all_params[key]
+        for key in (inspect.getfullargspec(main).args + ["git_commit_id", "use_gpu", 'keys_train', 'keys_test'])
+    }
+    print(params)
+    json.dump(params, (results_dir / "params.json").open("w+"), indent=2)
+
 
     def data_generator(keys, desc=None):
         for key in tqdm.tqdm(keys, desc=desc):
@@ -87,9 +104,12 @@ def main(
                     )
                     ys = torch.stack(
                         [torch.FloatTensor([item[1]]) for item in batch])
+                    if use_gpu:
+                        xs = xs.cuda()
+                        ys = ys.cuda()
 
                     predict = model(xs)[0]
-                    loss = torch.nn.BCEWithLogitsLoss()(predict, ys)
+                    loss = criterion(predict, ys)
 
                     if phase == "train":
                         optimizer.zero_grad()
@@ -102,9 +122,9 @@ def main(
                     running_n += xs.size(0)
                     running_loss += loss.item() * xs.size(0)
                     batch = []
-                if phase == "train" and i % 3000 == 0 and running_n > 0:
-                    print(running_loss / running_n)
-                    print(confmat)
+                # if phase == "train" and i % 3000 == 0 and running_n > 0:
+                #     print(running_loss / running_n)
+                #     print(confmat)
             print(running_loss / running_n)
             print(confmat)
         torch.save(
