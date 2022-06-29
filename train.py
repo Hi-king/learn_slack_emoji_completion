@@ -22,6 +22,8 @@ def main(
     weight_decay=1e-5,
     num_epoch=20,
     save_interval_epoch=1,
+    enable_hard_negative=True,
+    enable_positional_encoding=True,
 ):
     use_gpu = torch.cuda.is_available()
     git_commit_id = (
@@ -38,7 +40,9 @@ def main(
 
     tokenizer = emojicompletion.data.Tokenizer()
     model = emojicompletion.model.Transformer(
-        n_token=len(tokenizer.dictionary))
+        n_token=len(tokenizer.dictionary),
+        positional_encoding=enable_positional_encoding,
+    )
     criterion = torch.nn.BCEWithLogitsLoss()
     if use_gpu:
         model = model.cuda()
@@ -77,6 +81,13 @@ def main(
             # negative sample
             target = random.choice(list(set(candidates) - set(case_dict[key])))
             yield key + '/' + target, False
+
+            if enable_hard_negative:
+                # hard negative
+                hard_candidates = {candidate for candidate in candidates if set(key).issubset(set(candidate))} - set(case_dict[key])
+                if hard_candidates:
+                    target = random.choice(list(hard_candidates))
+                    yield key + '/' + target, False
 
     for epoch in range(num_epoch):
         for phase in ["train", "val"]:

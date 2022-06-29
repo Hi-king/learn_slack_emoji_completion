@@ -52,14 +52,18 @@ class PositionalEncoding(nn.Module):
 
 class Transformer(nn.Module):
 
-    def __init__(self,
-                 n_input=100,
-                 n_token=26,
-                 num_layers=3,
-                 num_head=20,
-                 dropout=0.5) -> None:
+    def __init__(
+        self,
+        n_input=100,
+        n_token=26,
+        num_layers=3,
+        num_head=20,
+        dropout=0.5,
+        positional_encoding=True,
+    ) -> None:
         super().__init__()
 
+        self.positional_encoding = positional_encoding
         self.n_input = n_input
         self.pos_encoder = PositionalEncoding(self.n_input, dropout)
         self.input_encoder = nn.Embedding(num_embeddings=n_token,
@@ -71,7 +75,8 @@ class Transformer(nn.Module):
 
     def forward(self, x):
         x = self.input_encoder(x) * math.sqrt(self.n_input)
-        x = self.pos_encoder(x)
+        if self.positional_encoding:
+            x = self.pos_encoder(x)
         x = self.transformer_encoder(x)
         x = self.decoder(x)
         return x
