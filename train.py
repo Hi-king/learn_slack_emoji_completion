@@ -21,6 +21,7 @@ def main(
     lr=1e-4,
     weight_decay=1e-5,
     num_epoch=20,
+    save_interval_epoch=1,
 ):
     use_gpu = torch.cuda.is_available()
     git_commit_id = (
@@ -127,10 +128,11 @@ def main(
                 #     print(confmat)
             print(running_loss / running_n)
             print(confmat)
-        torch.save(
-            copy.deepcopy(model).to("cpu").state_dict(),
-            results_dir / f"model_epoch{epoch}.pth",
-        )
+        if epoch % save_interval_epoch == 0:
+            torch.save(
+                copy.deepcopy(model).to("cpu").state_dict(),
+                results_dir / f"model_epoch{epoch}.pth",
+            )
 
 if __name__ == '__main__':
     fire.Fire(main)

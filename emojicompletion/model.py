@@ -1,5 +1,5 @@
 import math
-
+import torch
 import torch.nn as nn
 
 
@@ -61,6 +61,7 @@ class Transformer(nn.Module):
         super().__init__()
 
         self.n_input = n_input
+        self.pos_encoder = PositionalEncoding(self.n_input, dropout)
         self.input_encoder = nn.Embedding(num_embeddings=n_token,
                                           embedding_dim=self.n_input)
         self.transformer_encoder = nn.TransformerEncoder(
@@ -69,6 +70,8 @@ class Transformer(nn.Module):
         self.decoder = nn.Linear(self.n_input, 1)
 
     def forward(self, x):
-        return self.decoder(
-            self.transformer_encoder(
-                self.input_encoder(x) * math.sqrt(self.n_input)))
+        x = self.input_encoder(x) * math.sqrt(self.n_input)
+        x = self.pos_encoder(x)
+        x = self.transformer_encoder(x)
+        x = self.decoder(x)
+        return x
