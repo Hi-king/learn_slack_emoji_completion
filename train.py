@@ -75,7 +75,7 @@ def main(
                 yield key + '/' + target, True
 
             # negative sample
-            target = random.choice(candidates)
+            target = random.choice(list(set(candidates) - set(case_dict[key])))
             yield key + '/' + target, False
 
     for epoch in range(num_epoch):
