@@ -60,12 +60,13 @@ class Transformer(nn.Module):
         num_head=20,
         dropout=0.5,
         positional_encoding=True,
+        max_len=50,
     ) -> None:
         super().__init__()
 
         self.positional_encoding = positional_encoding
         self.n_input = n_input
-        self.pos_encoder = PositionalEncoding(self.n_input, dropout)
+        self.pos_encoder = PositionalEncoding(self.n_input, dropout, max_len=max_len)
         self.input_encoder = nn.Embedding(num_embeddings=n_token,
                                           embedding_dim=self.n_input)
         self.transformer_encoder = nn.TransformerEncoder(
