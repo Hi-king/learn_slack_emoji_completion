@@ -7,7 +7,9 @@ import random
 import subprocess
 
 import fire
+import more_itertools
 import numpy as np
+import pandas as pd
 import sklearn.model_selection
 import torch
 import tqdm
@@ -24,7 +26,11 @@ def main(
     save_interval_epoch=1,
     enable_hard_negative=True,
     enable_positional_encoding=True,
+    seed=42,
 ):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.seed(seed)
     use_gpu = torch.cuda.is_available()
     git_commit_id = (
         subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
@@ -54,6 +60,7 @@ def main(
     keys_train, keys_test = sklearn.model_selection.train_test_split(
         list(case_dict.keys()),
         test_size=1 - train_ratio,
+        random_state=seed,        
     )
     optimizer = torch.optim.Adam(
         model.parameters(),
@@ -71,6 +78,13 @@ def main(
     json.dump(params, (results_dir / "params.json").open("w+"), indent=2)
 
 
+    if enable_hard_negative:
+        hard_candidates_dict = {}
+        for key in tqdm.tqdm(case_dict.keys(), desc="generate hard negative"):
+            keycharset = set(key)
+            hard_candidates = {candidate for candidate in candidates if keycharset.issubset(set(candidates))} - set(case_dict[key])
+            hard_candidates_dict[key] = list(hard_candidates)
+
     def data_generator(keys, desc=None):
         for key in tqdm.tqdm(keys, desc=desc):
             # positive sample
@@ -83,25 +97,25 @@ def main(
             yield key + '/' + target, False
 
             if enable_hard_negative:
-                # hard negative
-                hard_candidates = {candidate for candidate in candidates if set(key).issubset(set(candidate))} - set(case_dict[key])
-                if hard_candidates:
-                    target = random.choice(list(hard_candidates))
+                if hard_candidates_dict[key]:
+                    target = random.choice(hard_candidates_dict[key])
                     yield key + '/' + target, False
 
     for epoch in range(num_epoch):
         for phase in ["train", "val"]:
             if phase == "train":
                 model.train()
+                keys = random.sample(keys_train,len(keys_train))
             else:
                 model.eval()
+                keys = random.sample(keys_train,len(keys_test))
             batch = []
             running_loss = 0.0
             running_n = 0
             confmat = np.zeros((2, 2), dtype=int)
             model.train()
             for i, (x, y) in enumerate(
-                    data_generator(keys_train, desc=f'[{phase}, epoch{epoch}]')):
+                    data_generator(keys, desc=f'[{phase}, epoch{epoch}]')):
                 batch.append((x, y))
                 if len(batch) >= batch_size:
                     xs = [item[0] for item in batch]
@@ -144,6 +158,34 @@ def main(
                 copy.deepcopy(model).to("cpu").state_dict(),
                 results_dir / f"model_epoch{epoch}.pth",
             )
+            rank_eval_keys = []
+            for key in keys_test:
+                if case_dict[key]:
+                    rank_eval_keys.append(key)
+                if len(rank_eval_keys) >= 5:
+                    break
+            for key in rank_eval_keys:
+                result = []
+                for xs_str in more_itertools.chunked(candidates, n=batch_size):
+                    with torch.inference_mode():
+                        maxlen = max(len(x) for x in xs_str)
+
+                        xs = torch.stack(
+                            [
+                                tokenizer.tokenize(key + '/' + x + "*" * (maxlen - len(x)))
+                                for x in xs_str
+                            ],
+                            dim=-1,
+                        )
+                        if use_gpu:
+                            xs = xs.cuda()
+                        pred = torch.nn.Sigmoid()(model(xs)[0]).to('cpu').numpy()
+                        for i in range(len(pred)):
+                            score = pred[i,0]
+                            result.append(dict(candidate=xs_str[i], score=score))
+                df = pd.DataFrame(result).assign(key=key)
+                df = df.sort_values(by="score", ascending=False).assign(rank=range(1, len(df)+1))
+                print(df[df["candidate"] == case_dict[key][0]])
 
 if __name__ == '__main__':
     fire.Fire(main)
