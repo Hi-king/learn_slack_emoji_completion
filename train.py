@@ -161,8 +161,8 @@ def main(
                         optimizer.step()
 
                     ys_pred: torch.Tensor = torch.nn.Sigmoid()(predict) > 0.5
-                    y_preds += ys_pred.to('cpu').numpy().astype(int)[0].tolist()
-                    y_trues += ys.to('cpu').numpy().astype(int)[0].tolist()
+                    y_preds += ys_pred.T.to('cpu').numpy().astype(int)[0].tolist()
+                    y_trues += ys.T.to('cpu').numpy().astype(int)[0].tolist()
                     for y, y_pred in zip(ys, ys_pred):
                         confmat[int(y), int(y_pred)] += 1
                     running_n += xs.size(0)
