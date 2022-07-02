@@ -1,3 +1,4 @@
+from cgitb import enable
 import copy
 import datetime
 import inspect
@@ -12,6 +13,7 @@ import numpy as np
 import pandas as pd
 import sklearn.model_selection
 import torch
+import wandb
 import tqdm
 
 import emojicompletion
@@ -24,13 +26,16 @@ def main(
     weight_decay=1e-5,
     num_epoch=20,
     save_interval_epoch=1,
-    enable_hard_negative=True,
+    enable_hard_negative=False,
     enable_positional_encoding=True,
+    enable_wandb=False,
     seed=42,
+    dropout=0.1,
+    from_model=None,
 ):
     random.seed(seed)
     np.random.seed(seed)
-    torch.seed(seed)
+    torch.manual_seed(seed)
     use_gpu = torch.cuda.is_available()
     git_commit_id = (
         subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
@@ -46,9 +51,12 @@ def main(
 
     tokenizer = emojicompletion.data.Tokenizer()
     model = emojicompletion.model.Transformer(
+        dropout=dropout,
         n_token=len(tokenizer.dictionary),
         positional_encoding=enable_positional_encoding,
     )
+    if from_model:
+        model.load_state_dict(torch.load(from_model))
     criterion = torch.nn.BCEWithLogitsLoss()
     if use_gpu:
         model = model.cuda()
@@ -76,13 +84,21 @@ def main(
     }
     print(params)
     json.dump(params, (results_dir / "params.json").open("w+"), indent=2)
+    if enable_wandb:
+        wandb.init(
+            project='learn_slack_emoji_completion',
+            name=results_dir.name,
+            config=params,
+        )
+        wandb.watch(model, criterion, log="all", log_freq=100)
+
 
 
     if enable_hard_negative:
         hard_candidates_dict = {}
         for key in tqdm.tqdm(case_dict.keys(), desc="generate hard negative"):
             keycharset = set(key)
-            hard_candidates = {candidate for candidate in candidates if keycharset.issubset(set(candidates))} - set(case_dict[key])
+            hard_candidates = {candidate for candidate in candidates if keycharset.issubset(set(candidate))} - set(case_dict[key])
             hard_candidates_dict[key] = list(hard_candidates)
 
     def data_generator(keys, desc=None):
@@ -113,6 +129,8 @@ def main(
             running_loss = 0.0
             running_n = 0
             confmat = np.zeros((2, 2), dtype=int)
+            y_preds = []
+            y_trues = []
             model.train()
             for i, (x, y) in enumerate(
                     data_generator(keys, desc=f'[{phase}, epoch{epoch}]')):
@@ -142,7 +160,9 @@ def main(
                         loss.backward()
                         optimizer.step()
 
-                    ys_pred = torch.nn.Sigmoid()(predict) > 0.5
+                    ys_pred: torch.Tensor = torch.nn.Sigmoid()(predict) > 0.5
+                    y_preds += ys_pred.to('cpu').numpy().astype(int)[0].tolist()
+                    y_trues += ys.to('cpu').numpy().astype(int)[0].tolist()
                     for y, y_pred in zip(ys, ys_pred):
                         confmat[int(y), int(y_pred)] += 1
                     running_n += xs.size(0)
@@ -152,6 +172,16 @@ def main(
                 #     print(running_loss / running_n)
                 #     print(confmat)
             print(running_loss / running_n)
+            if enable_wandb:
+                wandb.log(dict(
+                    epoch=epoch,
+                    confmat=wandb.plot.confusion_matrix(
+                        probs=None,
+                        y_true=y_trues, 
+                        preds=y_preds,
+                    )
+                ))
+                wandb.log({"epoch": epoch, f"{phase}_loss": running_loss / running_n})
             print(confmat)
         if epoch % save_interval_epoch == 0:
             torch.save(
@@ -164,6 +194,7 @@ def main(
                     rank_eval_keys.append(key)
                 if len(rank_eval_keys) >= 5:
                     break
+            dfs = []
             for key in rank_eval_keys:
                 result = []
                 for xs_str in more_itertools.chunked(candidates, n=batch_size):
@@ -185,7 +216,14 @@ def main(
                             result.append(dict(candidate=xs_str[i], score=score))
                 df = pd.DataFrame(result).assign(key=key)
                 df = df.sort_values(by="score", ascending=False).assign(rank=range(1, len(df)+1))
+                dfs.append(df[df["candidate"] == case_dict[key][0]])
                 print(df[df["candidate"] == case_dict[key][0]])
+            if enable_wandb:
+                wandb.log(dict(
+                    epoch=epoch,
+                    table=wandb.Table(dataframe=pd.concat(dfs))
+                ))
+
 
 if __name__ == '__main__':
     fire.Fire(main)
