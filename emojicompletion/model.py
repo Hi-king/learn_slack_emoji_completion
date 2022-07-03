@@ -49,6 +49,33 @@ class PositionalEncoding(nn.Module):
         x = x + self.pe[:x.size(0), :]
         return self.dropout(x)
 
+class SimpleLSTM(nn.Module):
+    def __init__(
+        self,
+        n_input=100,
+        n_token=26,
+        hidden_dim=100,
+        num_layers=3,
+        num_head=20,
+        dropout=0.5,
+        positional_encoding=True,
+        max_len=100,
+    ) -> None:
+        super().__init__()
+        self.n_input = n_input
+        self.input_encoder = nn.Embedding(
+            num_embeddings=n_token,
+            embedding_dim=self.n_input)
+        self.lstm = nn.LSTM(self.n_input, hidden_dim, num_layers=num_layers, dropout=dropout)
+        self.decoder = nn.Linear(hidden_dim, 1)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.input_encoder(x)
+        x, _ = self.lstm(x)
+        x = self.decoder(x)
+        return x
+
+
 
 class Transformer(nn.Module):
 

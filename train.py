@@ -25,13 +25,15 @@ def main(
     lr=1e-4,
     weight_decay=1e-5,
     num_epoch=20,
-    save_interval_epoch=1,
+    save_interval_epoch=100,
+    validation_interval_epoch=10,
     enable_hard_negative=False,
     enable_positional_encoding=True,
     enable_wandb=False,
     seed=42,
     dropout=0.1,
     from_model=None,
+    model_type='transformer',
 ):
     random.seed(seed)
     np.random.seed(seed)
@@ -45,16 +47,23 @@ def main(
     results_dir = (
         pathlib.Path(__file__).parent
         / "results"
-        / f'batch{batch_size}_lr{lr}_commit{git_commit_id}_{datetime.datetime.now().strftime("%Y%m%d%H%M")}'
+        / f'{model_type}_batch{batch_size}_lr{lr}_commit{git_commit_id}_hardneg{enable_hard_negative}_{datetime.datetime.now().strftime("%Y%m%d%H%M%S")}'
     )
     results_dir.mkdir(exist_ok=True, parents=True)
 
     tokenizer = emojicompletion.data.Tokenizer()
-    model = emojicompletion.model.Transformer(
-        dropout=dropout,
-        n_token=len(tokenizer.dictionary),
-        positional_encoding=enable_positional_encoding,
-    )
+    if model_type == 'transformer':
+        model = emojicompletion.model.Transformer(
+            dropout=dropout,
+            n_token=len(tokenizer.dictionary),
+            positional_encoding=enable_positional_encoding,
+        )
+    elif model_type == 'lstm':
+        model = emojicompletion.model.SimpleLSTM(
+            dropout=dropout,
+            n_token=len(tokenizer.dictionary),
+        )
+
     if from_model:
         model.load_state_dict(torch.load(from_model))
     criterion = torch.nn.BCEWithLogitsLoss()
@@ -188,6 +197,8 @@ def main(
                 copy.deepcopy(model).to("cpu").state_dict(),
                 results_dir / f"model_epoch{epoch}.pth",
             )
+
+        if epoch % validation_interval_epoch == 0:
             rank_eval_keys = []
             for key in keys_test:
                 if case_dict[key]:
@@ -219,10 +230,13 @@ def main(
                 dfs.append(df[df["candidate"] == case_dict[key][0]])
                 print(df[df["candidate"] == case_dict[key][0]])
             if enable_wandb:
+                result_table = pd.concat(dfs)
                 wandb.log(dict(
                     epoch=epoch,
-                    table=wandb.Table(dataframe=pd.concat(dfs))
-                ))
+                    table=wandb.Table(dataframe=result_table),
+                    sum_rank=result_table["rank"].sum(),
+                ) | {f'rank_{row["key"]}': row["rank"] for _,row in result_table.iterrows()})
+
 
 
 if __name__ == '__main__':
