@@ -1,4 +1,5 @@
 import math
+from unicodedata import bidirectional
 import torch
 import torch.nn as nn
 
@@ -63,21 +64,24 @@ class SimpleLSTM(nn.Module):
     ) -> None:
         super().__init__()
         self.n_input = n_input
+        self.hidden_dim = hidden_dim
         self.input_encoder = nn.Embedding(
             num_embeddings=n_token,
             embedding_dim=self.n_input)
-        self.lstm = nn.LSTM(self.n_input, hidden_dim, num_layers=num_layers, dropout=dropout)
-        self.decoder = nn.Linear(hidden_dim, 1)
+        self.lstm = nn.LSTM(
+            self.n_input, 
+            hidden_dim, 
+            num_layers=num_layers, 
+            dropout=dropout,
+            bidirectional=True,
+        )
+        self.decoder = nn.Linear(hidden_dim*2, 1)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        print(x.shape)
         x = self.input_encoder(x)
-        print(x.shape)
         x, _ = self.lstm(x)
-        print(x.shape)
-        x = self.decoder(x)
-        print(x.shape)
-        return x[-1]
+        x = self.decoder(torch.cat((x[0, :, :self.hidden_dim], x[-1, :, :self.hidden_dim]), 1))
+        return x
 
 
 
@@ -104,16 +108,13 @@ class Transformer(nn.Module):
         self.transformer_encoder = nn.TransformerEncoder(
             nn.TransformerEncoderLayer(d_model=self.n_input, nhead=num_head),
             num_layers=num_layers)
-        self.decoder = nn.Linear(self.n_input, 1)
+        self.decoder = nn.Linear(self.n_input*2, 1)
 
     def forward(self, x):
         x = self.input_encoder(x) * math.sqrt(self.n_input)
-        print(x.shape)
         if self.positional_encoding:
             x = self.pos_encoder(x)
-        print(x.shape)
         x = self.transformer_encoder(x)
-        print(x.shape)
-        x = self.decoder(x)
-        print(x.shape)
-        return x[-1]
+        x = self.decoder(torch.cat((x[0], x[-1]), 1))
+        # x = self.decoder(x[0])
+        return x

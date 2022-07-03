@@ -34,6 +34,7 @@ def main(
     dropout=0.1,
     from_model=None,
     model_type='transformer',
+    name_prefix='',
 ):
     random.seed(seed)
     np.random.seed(seed)
@@ -47,7 +48,7 @@ def main(
     results_dir = (
         pathlib.Path(__file__).parent
         / "results"
-        / f'{model_type}_batch{batch_size}_lr{lr}_commit{git_commit_id}_hardneg{enable_hard_negative}_{datetime.datetime.now().strftime("%Y%m%d%H%M%S")}'
+        / f'{name_prefix}{model_type}_batch{batch_size}_lr{lr}_commit{git_commit_id}_hardneg{enable_hard_negative}_{datetime.datetime.now().strftime("%Y%m%d%H%M%S")}'
     )
     results_dir.mkdir(exist_ok=True, parents=True)
 
@@ -221,7 +222,7 @@ def main(
                         )
                         if use_gpu:
                             xs = xs.cuda()
-                        pred = torch.nn.Sigmoid()(model(xs)[0]).to('cpu').numpy()
+                        pred = torch.nn.Sigmoid()(model(xs)).to('cpu').numpy()
                         for i in range(len(pred)):
                             score = pred[i,0]
                             result.append(dict(candidate=xs_str[i], score=score))
