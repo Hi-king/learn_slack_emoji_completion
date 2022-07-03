@@ -161,7 +161,7 @@ def main(
                         xs = xs.cuda()
                         ys = ys.cuda()
 
-                    predict = model(xs)[0]
+                    predict = model(xs)
                     loss = criterion(predict, ys)
 
                     if phase == "train":

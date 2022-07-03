@@ -70,10 +70,14 @@ class SimpleLSTM(nn.Module):
         self.decoder = nn.Linear(hidden_dim, 1)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        print(x.shape)
         x = self.input_encoder(x)
+        print(x.shape)
         x, _ = self.lstm(x)
+        print(x.shape)
         x = self.decoder(x)
-        return x
+        print(x.shape)
+        return x[-1]
 
 
 
@@ -104,8 +108,12 @@ class Transformer(nn.Module):
 
     def forward(self, x):
         x = self.input_encoder(x) * math.sqrt(self.n_input)
+        print(x.shape)
         if self.positional_encoding:
             x = self.pos_encoder(x)
+        print(x.shape)
         x = self.transformer_encoder(x)
+        print(x.shape)
         x = self.decoder(x)
-        return x
+        print(x.shape)
+        return x[-1]
