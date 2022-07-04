@@ -57,14 +57,13 @@ class SimpleLSTM(nn.Module):
         n_token=26,
         hidden_dim=100,
         num_layers=3,
-        num_head=20,
         dropout=0.5,
-        positional_encoding=True,
-        max_len=100,
+        output_type='bi',
     ) -> None:
         super().__init__()
         self.n_input = n_input
         self.hidden_dim = hidden_dim
+        self.output_type = output_type
         self.input_encoder = nn.Embedding(
             num_embeddings=n_token,
             embedding_dim=self.n_input)
@@ -73,14 +72,23 @@ class SimpleLSTM(nn.Module):
             hidden_dim, 
             num_layers=num_layers, 
             dropout=dropout,
-            bidirectional=True,
+            bidirectional=(output_type=='bi'),
         )
-        self.decoder = nn.Linear(hidden_dim*2, 1)
+        if self.output_type == 'bi':
+            self.decoder = nn.Linear(self.n_input*2, 1)
+        else:
+            self.decoder = nn.Linear(self.n_input, 1)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.input_encoder(x)
         x, _ = self.lstm(x)
-        x = self.decoder(torch.cat((x[0, :, :self.hidden_dim], x[-1, :, :self.hidden_dim]), 1))
+        if self.output_type == 'bi':
+            x = self.decoder(torch.cat((x[0, :, :self.hidden_dim], x[-1, :, :self.hidden_dim]), 1))
+        if self.output_type == 'last':
+            x = self.decoder(x[-1])
+        else:
+            raise Exception()
+
         return x
 
 
@@ -96,11 +104,13 @@ class Transformer(nn.Module):
         dropout=0.5,
         positional_encoding=True,
         max_len=100,
+        output_type='bi',
     ) -> None:
         super().__init__()
 
         self.positional_encoding = positional_encoding
         self.n_input = n_input
+        self.output_type = output_type
         if self.positional_encoding:
             self.pos_encoder = PositionalEncoding(self.n_input, dropout, max_len=max_len)
         self.input_encoder = nn.Embedding(num_embeddings=n_token,
@@ -108,13 +118,29 @@ class Transformer(nn.Module):
         self.transformer_encoder = nn.TransformerEncoder(
             nn.TransformerEncoderLayer(d_model=self.n_input, nhead=num_head),
             num_layers=num_layers)
-        self.decoder = nn.Linear(self.n_input*2, 1)
+        if output_type == 'bi':
+            self.decoder = nn.Linear(self.n_input*2, 1)
+        else:
+            self.decoder = nn.Linear(self.n_input, 1)
+            self.init_weights()
+        self.init_weights()
+
+    def init_weights(self) -> None:
+        initrange = 0.1
+        self.input_encoder.weight.data.uniform_(-initrange, initrange)
+        self.decoder.bias.data.zero_()
+        self.decoder.weight.data.uniform_(-initrange, initrange)
+
 
     def forward(self, x):
         x = self.input_encoder(x) * math.sqrt(self.n_input)
         if self.positional_encoding:
             x = self.pos_encoder(x)
         x = self.transformer_encoder(x)
-        x = self.decoder(torch.cat((x[0], x[-1]), 1))
-        # x = self.decoder(x[0])
+        if self.output_type == 'bi':
+            x = self.decoder(torch.cat((x[0], x[-1]), 1))
+        if self.output_type == 'last':
+            x = self.decoder(x[-1])
+        else:
+            raise Exception()
         return x

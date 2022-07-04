@@ -35,11 +35,14 @@ def main(
     from_model=None,
     model_type='transformer',
     name_prefix='',
+    num_layers=3,
+    output_type='bi',
 ):
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     use_gpu = torch.cuda.is_available()
+    assert use_gpu
     git_commit_id = (
         subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
         .decode("ascii")
@@ -57,12 +60,16 @@ def main(
         model = emojicompletion.model.Transformer(
             dropout=dropout,
             n_token=len(tokenizer.dictionary),
+            num_layers=num_layers,
             positional_encoding=enable_positional_encoding,
+            output_type=output_type,
         )
     elif model_type == 'lstm':
         model = emojicompletion.model.SimpleLSTM(
             dropout=dropout,
+            num_layers=num_layers,
             n_token=len(tokenizer.dictionary),
+            output_type=output_type,
         )
 
     if from_model:
