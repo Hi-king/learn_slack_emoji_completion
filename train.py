@@ -37,6 +37,7 @@ def main(
     name_prefix='',
     num_layers=3,
     output_type='bi',
+    should_use_gpu=False,
     **kwargs,
 ):
     assert not kwargs # check undefined cmdline args
@@ -44,7 +45,7 @@ def main(
     np.random.seed(seed)
     torch.manual_seed(seed)
     use_gpu = torch.cuda.is_available()
-    assert use_gpu
+    if should_use_gpu: assert use_gpu
     git_commit_id = (
         subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
         .decode("ascii")
@@ -237,8 +238,10 @@ def main(
                             result.append(dict(candidate=xs_str[i], score=score))
                 df = pd.DataFrame(result).assign(key=key)
                 df = df.sort_values(by="score", ascending=False).assign(rank=range(1, len(df)+1))
-                dfs.append(df[df["candidate"] == case_dict[key][0]])
-                print(df[df["candidate"] == case_dict[key][0]])
+
+                first_hit = df[df["candidate"].isin(case_dict[key])].sort_values('rank').iloc[[0]]
+                dfs.append(first_hit)
+                print(first_hit)
             if enable_wandb:
                 result_table = pd.concat(dfs)
                 wandb.log(dict(
