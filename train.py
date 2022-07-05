@@ -5,8 +5,10 @@ import functools
 import inspect
 import json
 import pathlib
+import queue
 import random
 import subprocess
+from typing import Optional
 
 import fire
 import more_itertools
@@ -19,6 +21,17 @@ import tqdm
 
 import emojicompletion
 
+
+class RandomAccessQueue:
+    def __init__(self, maxsize) -> None:
+        self.list = []
+        self.maxsize = maxsize
+    
+    def put(self, item) -> None:
+        self.list.append(item)
+        if len(self.list) > self.maxsize:
+            self.list.pop(0) # slow...
+
 def main(
     batch_size=10,
     train_ratio=0.8,
@@ -28,6 +41,7 @@ def main(
     save_interval_epoch=100,
     validation_interval_epoch=10,
     enable_hard_negative=False,
+    enable_adaptive_hard_negative=False,
     enable_positional_encoding=True,
     enable_wandb=False,
     seed=42,
@@ -40,7 +54,7 @@ def main(
     should_use_gpu=False,
     **kwargs,
 ):
-    assert not kwargs # check undefined cmdline args
+    assert not kwargs, kwargs # check undefined cmdline args
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -120,8 +134,9 @@ def main(
             keycharset = set(key)
             hard_candidates = {candidate for candidate in candidates if keycharset.issubset(set(candidate))} - set(case_dict[key])
             hard_candidates_dict[key] = list(hard_candidates)
+    adaptive_hard_negative_queue = RandomAccessQueue(maxsize=len(keys_train) * 0.3)
 
-    def data_generator(keys, desc=None):
+    def data_generator(keys, optional_queue: Optional[RandomAccessQueue], desc=None):
         for key in tqdm.tqdm(keys, desc=desc):
             # positive sample
             if case_dict[key]:
@@ -136,6 +151,9 @@ def main(
                 if hard_candidates_dict[key]:
                     target = random.choice(hard_candidates_dict[key])
                     yield key + '/' + target, False
+            if optional_queue:
+                if random.random() < len(optional_queue.list) / len(keys):
+                    yield random.choice(optional_queue.list)
 
     for epoch in range(num_epoch):
         for phase in ["train", "val"]:
@@ -152,8 +170,9 @@ def main(
             y_preds = []
             y_trues = []
             model.train()
+            optional_queue = adaptive_hard_negative_queue if phase == "train" else None
             for i, (x, y) in enumerate(
-                    data_generator(keys, desc=f'[{phase}, epoch{epoch}]')):
+                    data_generator(keys, optional_queue=optional_queue, desc=f'[{phase}, epoch{epoch}]')):
                 batch.append((x, y))
                 if len(batch) >= batch_size:
                     xs = [item[0] for item in batch]
@@ -185,6 +204,10 @@ def main(
                     y_trues += ys.T.to('cpu').numpy().astype(int)[0].tolist()
                     for y, y_pred in zip(ys, ys_pred):
                         confmat[int(y), int(y_pred)] += 1
+                    if enable_adaptive_hard_negative:
+                        for item, correct in zip(batch, (ys_pred != ys)):
+                            if not correct:
+                                adaptive_hard_negative_queue.put(item)                        
                     running_n += xs.size(0)
                     running_loss += loss.item() * xs.size(0)
                     batch = []
