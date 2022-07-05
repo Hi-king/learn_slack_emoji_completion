@@ -1,6 +1,7 @@
 from cgitb import enable
 import copy
 import datetime
+import functools
 import inspect
 import json
 import pathlib
@@ -17,7 +18,6 @@ import wandb
 import tqdm
 
 import emojicompletion
-
 
 def main(
     batch_size=10,
@@ -37,7 +37,9 @@ def main(
     name_prefix='',
     num_layers=3,
     output_type='bi',
+    **kwargs,
 ):
+    assert not kwargs # check undefined cmdline args
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
