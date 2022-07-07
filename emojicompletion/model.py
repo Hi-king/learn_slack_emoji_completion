@@ -75,17 +75,19 @@ class SimpleLSTM(nn.Module):
             bidirectional=(output_type=='bi'),
         )
         if self.output_type == 'bi':
-            self.decoder = nn.Linear(self.n_input*2, 1)
+            self.decoder = nn.Linear(self.hidden_dim*2, 1)
         else:
-            self.decoder = nn.Linear(self.n_input, 1)
+            self.decoder = nn.Linear(self.hidden_dim, 1)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.input_encoder(x)
         x, _ = self.lstm(x)
         if self.output_type == 'bi':
             x = self.decoder(torch.cat((x[0, :, :self.hidden_dim], x[-1, :, :self.hidden_dim]), 1))
-        if self.output_type == 'last':
+        elif self.output_type == 'last':
             x = self.decoder(x[-1])
+        elif self.output_type == 'feature':
+            x = x[-1]
         else:
             raise Exception()
 
@@ -139,8 +141,20 @@ class Transformer(nn.Module):
         x = self.transformer_encoder(x)
         if self.output_type == 'bi':
             x = self.decoder(torch.cat((x[0], x[-1]), 1))
-        if self.output_type == 'last':
+        elif self.output_type == 'last':
             x = self.decoder(x[-1])
+        elif self.output_type == 'feature':
+            x = x[-1]
         else:
             raise Exception()
         return x
+
+class TwinModel(nn.Module):
+    def __init__(
+        self,
+        model1,
+        model2,
+    ) -> None:
+        super().__init__()
+        self.model1 = model1
+        self.model2 = model2
