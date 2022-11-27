@@ -463,7 +463,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e9ff484aea040ceaad70f1b5d2c827f60b766d427acccefa80cec4bf9274843f"
+content-hash = "0f36bd89254daf4890a137ff2e143ec728e804a164062e1aab92b41610c1fe35"
 
 [metadata.files]
 certifi = [
