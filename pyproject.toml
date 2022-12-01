@@ -19,8 +19,6 @@ python-Levenshtein = "^0.12.2"
 [tool.poetry.dev-dependencies]
 yapf = "^0.32.0"
 toml = "^0.10.2"
-
-[tool.poetry.group.dev.dependencies]
 ipykernel = "^6.17.1"
 
 [build-system]
